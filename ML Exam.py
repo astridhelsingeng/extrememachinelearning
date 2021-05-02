@@ -104,9 +104,6 @@ df["company_size"] = df["company_size"].fillna("0")
 df.head()
 
 
-# In[16]:
-
-
 for i in df["last_new_job"]:
     if(i==">4"):
         df["last_new_job"][df["last_new_job"]==i]=5
@@ -118,10 +115,6 @@ df["last_new_job"] = df["last_new_job"].fillna(0)
 df["last_new_job"] = df['last_new_job'].astype('int')
 df["last_new_job"].unique()
 
-
-# In[18]:
-
-
 df.reset_index(drop=True, inplace=True)
 
 for i in range(len(df["city"])):
@@ -130,30 +123,26 @@ for i in range(len(df["city"])):
 df["city"] = df['city'].astype('int')
 
 
-# In[19]:
-
-
 for column in df.columns:
     if df[column].dtype == "object":
         df[column] = df[column].astype("category")
         df[column] = df[column].cat.codes.astype("int64")
 
 
-# In[20]:
-
-
 df.info()
 df.head()
 
 
-# In[ ]:
+##
+
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+plt.style.use("seaborn-colorblind")
+sns.pairplot(df, hue="target")
+plt.show()
 
 
 
-
-
-# In[ ]:
-
-
-
+##
 
