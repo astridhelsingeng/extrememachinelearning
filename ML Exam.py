@@ -146,9 +146,8 @@ df.info()
 df.head()
 
 
-# In[ ]:
-
-
+# In[ ]: 
+df.to_csv(r'cleaned_data.csv')
 
 
 
